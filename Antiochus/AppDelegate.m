@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // Collect Device Info before takeoff
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    
+    // Start Testflight
+    [TestFlight takeOff:@"ba18b6198bc48f78e6eb84a75be9f3f9_MTE1MTI0MjAxMi0wNy0yNyAxNDo0MzoyNC40MDMwODk"];
+
+    
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -42,6 +50,10 @@
 
 	// attach the openglView to the director
 	[director_ setView:glView];
+    
+    // Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
+    if( ! [director_ enableRetinaDisplay:YES] )
+        CCLOG(@"Retina Display Not supported");
 
 	// for rotation and other messages
 	[director_ setDelegate:self];
@@ -141,12 +153,5 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-- (void) dealloc
-{
-	[window_ release];
-	[navController_ release];
-
-	[super dealloc];
-}
 @end
 
