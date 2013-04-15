@@ -7,12 +7,15 @@
 //
 
 #import "cocos2d.h"
-#import "ParallaxScroller.h"
+
+@class ParallaxScroller;
 
 @interface GameScene : CCLayer
 
 @property ParallaxScroller *Parallax;
 
 +(id)scene;
+
+-(void)spawnBuilding;
 
 @end

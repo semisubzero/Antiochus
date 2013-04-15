@@ -7,6 +7,7 @@
 //
 
 #import "ParallaxLayer.h"
+#import "cocos2d.h"
 
 @implementation ParallaxLayer
 
@@ -19,6 +20,7 @@
 // Speed of scroll
 @synthesize speed;
 
+// Create a new parallax layer
 -(id)initWithImage:(NSString *)fileName withSpeed:(int *)spriteSpeed{
 
     if( [super init] ){

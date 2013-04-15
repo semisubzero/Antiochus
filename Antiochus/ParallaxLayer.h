@@ -6,8 +6,8 @@
 //
 //
 
-#import "CCLayer.h"
-#import "cocos2d.h"
+// CCSprite Placeholder
+@class CCSprite;
 
 @interface ParallaxLayer : NSObject
 

@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "ParallaxScroller.h"
 
 @implementation GameScene
 
@@ -56,7 +57,10 @@
         
         // Add the third layer background
         [Parallax addBackground:@"midground 1.png" withSpeed:60];
-            
+        
+        [Parallax addBuilding];
+        [self schedule:@selector(spawnBuilding) interval:2];
+        
     }
     
     return self;
@@ -65,5 +69,9 @@
 // Where all the game logic goes
 -(void)update:(ccTime)dt{
     [Parallax update:dt];
+}
+
+-(void)spawnBuilding{
+    [Parallax addBuilding];
 }
 @end
